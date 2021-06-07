@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Создание шифрованных бэкапов</title>
+
+    <!-- шрифт -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap" rel="stylesheet">
+    <!-- шрифт -->
+
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <!-- bootstrap -->
+
+    <!-- style -->
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/media.css">
+    <!-- style -->
+</head>
+
+<body>
+
+    <!-- nav -->
+    <nav class="navigation mb-0">
+        <div class="container">
+            <div class="navigation-block d-flex justify-content-between align-items-center py-2">
+                <img class="nav-logo" src="./img/nav/logo.png" alt="Логотип">
+                <h3 class="nav-title">БЛОГ</h3>
+                <div class="entrance-block">
+                    <buttom class="nav-btn d-none d-sm-block">Войти</buttom>
+                    <button class="nav-btn d-block d-sm-none"><img src="./img/nav/entrance.svg" alt=""></button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- nav -->
+
+    <!-- card-sec -->
+    <section class="article-back-up">
+        <div class="container">
+            <h1 class="obj-title__blog">Создание <span>шифрованных бэкапов</span></h1>
+
+            <div class="article-general-block">
+                <div class="article-content w-100 mb-5">
+                    <img src="./img/articles/a-1-1/a-1-big.png" class="art-big mb-4" alt="">
+                    <p class="article-content__text mb-4">Безопасность бэкапов очень важна, особенно если вы работаете с
+                        конфиденциальными данными. Никто, кроме вас, не должен иметь возможность читать ваши резервные
+                        копии и вы должны быть уверены, что в случаем проблем не потеряете данные.</p>
+                    <p class="article-content__text mb-4">Всегда нужно шифровать резервные копии своих приложений и
+                        безопасным способом передавать их в одно или несколько мест для хранения. <br> Если вы шифруете
+                        бэкап
+                        на своем сервере и передаете на хостинг для хранения уже зашифрованную версию, то даже хостер
+                        бекапов не сможет их прочесть.</p>
+                    <p class="article-content__text mb-4">Я рекомендую вам выбрать другого хостера для хранения
+                        резервных копий, не того же, что и для продакшн-сервера. Если по какой-либо причине у вашего
+                        хостера возникнут проблемы, то вы все равно сможете получить доступ к бэкапам, чтобы
+                        восстановить работу приложения как можно быстрее.</p>
+                    <div class="article-element mb-5">
+                        <h3 class="article-element__title mb-4">Содержание</h3>
+                        <ul class="article-element__list">
+                            <li class="article-element__item article-content__title mb-2">1. Представляем
+                                spatie/laravel-backup</li>
+                            <li class="article-element__item article-content__title">2. Шифруйте бэкапы с помощью
+                                AES-256</li>
+                        </ul>
+                    </div>
+
+                    <h3 class="article-content__title mb-4">Представляем spatie/laravel-backup</h3>
+                    <p class="article-content__text mb-5">Пакет lativel-backup от Spatie является идеальной отправной
+                        точкой для создания бэкапов вашего проекта на Laravel. Он создает снимок вашей базы данных и
+                        файлов вашего приложения и запаковывает их в ZIP-файл, который пересылается в указанное место
+                        для хранения. Пакет полностью конфигурируется, просто настройте его под свои нужды и используйте
+                        планировщик задач Laravel для создания регулярных бэкапов. Узнать больше о том, как
+                        настраивается пакет мы можете в документации.</p>
+                    <h3 class="article-content__title mb-4">Шифруйте бэкапы с помощью AES-256</h3>
+                    <p class="article-content__text mb-4">Единственное, чего не хватает в этом пакете: шифрование. Но
+                        пакет запускает различные события, которые мы можем слушать, и добавить шифрование становится
+                        очень просто. Интересующее нас событие — BackupZipWasCreated. Оно запускается, как только
+                        создастся ZIP-файл с бэкапом, сразу перед его копированием в место назначения. По сути,
+                        идеальное время для шифрование файла.</p>
+                    <p class="article-content__text mb-4">Если вы имеете дело с конфиденциальными данными, то вам
+                        следует использовать безопасный алгоритм, например, такой как AES-256. К счастью, PHP 7.2 имеет
+                        встроенную поддержку шифрования в ZipArchive.</p>
+                    <p class="article-content__text mb-4">Давайте создадим слушателя события BackupZipWasCreated,
+                        который будет шифровать бэкап.</p>
+                    <p class="article-content__text mb-4">Начиная с Laravel 5.8.9, вы можете использовать обнаружение
+                        событий (Event Discovery), поэтому не нужно регистрировать слушателя вручную в
+                        EventServiceProvider. Просто объявите тип события, которое надо прослушивать и Laravel все
+                        сделает сам.</p>
+                    <p class="article-content__text mb-4">Я вынес пароль для бэкапов в переменную .env, которая доступна
+                        через config(‘app.backup.password’). Ваш пароль не используется для шифрования напрямую. Он
+                        передается в функцию вывода ключа, которая генерирует 32-х байтный ключ, необходимый для
+                        шифрования AES-256. Только добавьте достаточно энтропии к паролю.</p>
+                    <p class="article-content__text mb-4">Теперь, когда у нас все готово, мы можем запустить php artisan
+                        backup:run. Чтобы убедиться, что шифрование работает правильно, попробуйте открыть файл
+                        резервной копии — у вас должны спросить пароль.</p>
+                    <p class="article-content__text mb-4">Запомните свой свой пароль и храните его в безопасности. Если
+                        вы его потеряете, то не сможете расшифровать свои бэкапы и потеряете данные навсегда!</p>
+                    <p class="article-content__text mb-5">Я надеюсь, вам понравилась эта статья. Защита данных это не
+                        так сложна, как кажется, но отнеситесь к ней серьезно и начните с малого.</p>
+                    <div class="article-content__bottom w-100 mb-3"></div>
+                    <div class="article-content__tag d-flex">
+                        <a href="#" class="article-content__tag--element me-2">
+                            <p class="article-content__text">#тег1</p>
+                        </a>
+                        <a href="#" class="article-content__tag--element me-2">
+                            <p class="article-content__text">#тег2</p>
+                        </a>
+                        <a href="#" class="article-content__tag--element me-2">
+                            <p class="article-content__text">#тег3</p>
+                        </a>
+                        <a href="#" class="article-content__tag--element">
+                            <p class="article-content__text">#тег4</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="author-article d-flex align-items-center justify-content-between">
+                    <div class="author-article__block d-flex">
+                        <img src="./img/articles/a-1-1/a-1-author.png" class="me-3" alt="#">
+                        <div class="author-article__info">
+                            <p class="author-article__info--name">Денис Фролов</p>
+                            <p class="author-article__info--description mb-1"> Эксперт по ведению контента компании
+                                «L-digital»
+                            </p>
+                            <p class="author-article__info--date">27.04.2021</p>
+                        </div>
+                    </div>
+
+                    <div class="date-com-author">
+                        <p class="date-info mb-1">26 мая 2021, 00:44</p>
+                        <div class="com-like__block d-flex align-items-center">
+                            <div class="comment-block d-flex align-items-center me-2">
+                                <img class="me-1" src="./img/articles/comment.png" alt="#">
+                                <div class="comment__number">0</div>
+                            </div>
+                            <div class="like-block d-flex align-items-center">
+                                <img class="me-1" src="./img/articles/like.png" alt="#">
+                                <div class="like__number">0</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="title-comment">Комментарии <span>(33)</span></h3>
+                <div class="comment-block-people">
+                    <div class="comment-block-people__item d-flex align-items-start">
+                        <img src="./img/articles/comment-block-people/people.png" alt="#" class="me-4 pt-1">
+                        <div class="comment-block-people__information position-relative">
+                            <h4 class="comment-block-people__naem">Денис Фролов</h4>
+                            <p class="comment-block-people__text mb-1">Каждый день своей жизни мы учимся. Кто-то
+                                извлекает
+                                выводы из полученных уроков, кто-то нет. Большую часть времени этот процесс остается для
+                                нас подсознательным.</p>
+                            <div class="comment-block-answer-date d-flex align-items-center">
+                                <p class="comment-block-date__element me-2">27.04.2021</p>
+                                <button class="comment-block-answer__element">Ответить</и>
+
+                            </div>
+                            <div class="comment-heart-block d-flex align-items-center position-absolute">
+                                <div class="comment-heart__element me-1">&#9829;</div>
+                                <div class="comment-heart__number">1</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment-block-people__item d-flex align-items-start">
+                        <img src="./img/articles/comment-block-people/people.png" alt="#" class="me-4 pt-1">
+                        <div class="comment-block-people__information position-relative">
+                            <h4 class="comment-block-people__naem">Денис Фролов</h4>
+                            <p class="comment-block-people__text mb-1">Каждый день своей жизни мы учимся. Кто-то
+                                извлекает
+                                выводы из полученных уроков, кто-то нет. Большую часть времени этот процесс остается для
+                                нас подсознательным.</p>
+                            <div class="comment-block-answer-date d-flex align-items-center">
+                                <p class="comment-block-date__element me-2">27.04.2021</p>
+                                <button class="comment-block-answer__element">Ответить</и>
+
+                            </div>
+                            <div class="comment-heart-block d-flex align-items-center position-absolute">
+                                <div class="comment-heart__element me-1">&#9829;</div>
+                                <div class="comment-heart__number">1</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment-block-people__item d-flex align-items-start">
+                        <img src="./img/articles/comment-block-people/people.png" alt="#" class="me-4 pt-1">
+                        <div class="comment-block-people__information position-relative">
+                            <h4 class="comment-block-people__naem">Денис Фролов</h4>
+                            <p class="comment-block-people__text mb-1">Каждый день своей жизни мы учимся. Кто-то
+                                извлекает
+                                выводы из полученных уроков, кто-то нет. Большую часть времени этот процесс остается для
+                                нас подсознательным.</p>
+                            <div class="comment-block-answer-date d-flex align-items-center">
+                                <p class="comment-block-date__element me-2">27.04.2021</p>
+                                <button class="comment-block-answer__element">Ответить</и>
+
+                            </div>
+                            <div class="comment-heart-block d-flex align-items-center position-absolute">
+                                <div class="comment-heart__element me-1">&#9829;</div>
+                                <div class="comment-heart__number">1</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="comment-block-people__item d-flex align-items-start">
+                        <img src="./img/articles/comment-block-people/people.png" alt="#" class="me-4 pt-1">
+                        <div class="comment-block-people__information position-relative">
+                            <h4 class="comment-block-people__naem">Денис Фролов</h4>
+                            <p class="comment-block-people__text mb-1">Каждый день своей жизни мы учимся. Кто-то
+                                извлекает
+                                выводы из полученных уроков, кто-то нет. Большую часть времени этот процесс остается для
+                                нас подсознательным.</p>
+                            <div class="comment-block-answer-date d-flex align-items-center">
+                                <p class="comment-block-date__element me-2">27.04.2021</p>
+                                <button class="comment-block-answer__element">Ответить</и>
+
+                            </div>
+                            <div class="comment-heart-block d-flex align-items-center position-absolute">
+                                <div class="comment-heart__element me-1">&#9829;</div>
+                                <div class="comment-heart__number">1</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <label class="label-comment d-flex align-items-center position-relative" for="">
+                    <input type="text" placeholder="Напишите здесь свой комментарий ..." class="label-comment__input">
+                    <button class="label-btn-arrow p-0"><img src="./img/articles/next-arrow.png"
+                            class="label-next-arrow" alt=""></button>
+                    <div class="position-absolute label-btn-clip"><img src="./img/articles/clip.png" alt="">
+                    </div>
+                    <div class="position-absolute label-btn-photo"><img src="./img/articles/photo.png" alt="">
+                    </div>
+                    <div class="position-absolute label-btn-smile"><img src="./img/articles/smile-face.png" alt="">
+                    </div>
+                </label>
+
+            </div>
+        </div>
+        <div class="article-card-block bg-color">
+            <div class="container">
+                <h1 class="obj-title__blog">Похожие статьи</h1>
+                <div class="card__block d-flex justify-content-between flex-wrap mb-3">
+                    <div class="card__item d-flex flex-column mb-3 mx-auto position-relative">
+                        <a class="card-general__picture mb-3" href="./article-back-up.html"><img class="a-1"
+                                src="./img/articles/a-1.png" alt=""></a>
+                        <div class="card__content px-3">
+                            <a class="link-title-card" href="./article-back-up.html">
+                                <h4 class="title-card mb-1">Заголовок статьи</h4>
+                            </a>
+                            <p class="card__description">Расшифровка подзаголовка,немного конкретики и инфы ...</p>
+                        </div>
+                        <a class="read-next position-absolute" href="./article-back-up.html">
+                            <p class=" px-3">Читать далее</p>
+                        </a>
+                        <div class="date-com-like position-absolute px-3">
+                            <p class="date-info mb-1">26 мая 2021, 00:44</p>
+                            <div class="com-like__block d-flex align-items-center">
+                                <div class="comment-block d-flex align-items-center me-2">
+                                    <img class="me-1" src="./img/articles/comment.png" alt="#">
+                                    <div class="comment__number">0</div>
+                                </div>
+                                <div class="like-block d-flex align-items-center">
+                                    <img class="me-1" src="./img/articles/like.png" alt="#">
+                                    <div class="like__number">0</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card__item d-flex flex-column mb-3 mx-auto position-relative">
+                        <a class="card-general__picture mb-3" href="#"><img class="a-1" src="./img/articles/a-2.png"
+                                alt=""></a>
+                        <div class="card__content px-3">
+                            <a class="link-title-card" href="#">
+                                <h4 class="title-card mb-1">Заголовок статьи</h4>
+                            </a>
+                            <p class="card__description">Расшифровка подзаголовка,немного конкретики и инфы ...</p>
+                        </div>
+                        <a class="read-next position-absolute" href="#">
+                            <p class=" px-3">Читать далее</p>
+                        </a>
+                        <div class="date-com-like position-absolute px-3">
+                            <p class="date-info mb-1">26 мая 2021, 00:44</p>
+                            <div class="com-like__block d-flex align-items-center">
+                                <div class="comment-block d-flex align-items-center me-2">
+                                    <img class="me-1" src="./img/articles/comment.png" alt="#">
+                                    <div class="comment__number">0</div>
+                                </div>
+                                <div class="like-block d-flex align-items-center">
+                                    <img class="me-1" src="./img/articles/like.png" alt="#">
+                                    <div class="like__number">0</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card__item d-flex flex-column mb-3 mx-auto position-relative">
+                        <a class="card-general__picture mb-3" href="#"><img class="a-1" src="./img/articles/a-3.png"
+                                alt=""></a>
+                        <div class="card__content px-3">
+                            <a class="link-title-card" href="#">
+                                <h4 class="title-card mb-1">Заголовок статьи</h4>
+                            </a>
+                            <p class="card__description">Расшифровка подзаголовка,немного конкретики и инфы ...</p>
+                        </div>
+                        <a class="read-next position-absolute" href="#">
+                            <p class=" px-3">Читать далее</p>
+                        </a>
+                        <div class="date-com-like position-absolute px-3">
+                            <p class="date-info mb-1">26 мая 2021, 00:44</p>
+                            <div class="com-like__block d-flex align-items-center">
+                                <div class="comment-block d-flex align-items-center me-2">
+                                    <img class="me-1" src="./img/articles/comment.png" alt="#">
+                                    <div class="comment__number">0</div>
+                                </div>
+                                <div class="like-block d-flex align-items-center">
+                                    <img class="me-1" src="./img/articles/like.png" alt="#">
+                                    <div class="like__number">0</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- card-sec -->
+
+
+    <!-- bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+        integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
+        crossorigin="anonymous"></script>
+    <!-- bootstrap -->
+
+    <!-- script -->
+    <script src="./js/script.js"></script>
+    <!-- script -->
+</body>
+
+</html>

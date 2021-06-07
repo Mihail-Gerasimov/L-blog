@@ -1,0 +1,53 @@
+@media (max-width: 1200px) {}
+
+@media (max-width: 992px) {}
+
+@media (max-width: 767px) {
+
+    /* nav */
+    .navigation {
+        margin-bottom: 40px;
+    }
+
+    /* nav */
+    /* card-ser */
+    .card-sec {
+        padding-bottom: 70px;
+    }
+
+    .card__description {
+        font-size: 19px;
+    }
+
+    /* card-ser */
+
+}
+
+@media (max-width: 575px) {
+
+    /* nav */
+    .nav-logo {
+        width: 40px;
+    }
+
+    .nav-title,
+    .nav-btn {
+        font-size: 20px;
+        line-height: 26px;
+    }
+
+    /* nav */
+    /* card-sec */
+    .read-next {
+        font-size: 18px;
+        line-height: 23px;
+        bottom: 23px;
+    }
+
+    .date-com-like {
+        bottom: 5px;
+        right: 0;
+    }
+
+    /* card-sec */
+}
