@@ -513,13 +513,13 @@ button:focus {
 /* article-back-up */
 
 /* autorization */
-.entrance-block {
+.autorization-block {
     width: 100%;
     height: 100vh;
     background-color: #F4F9FF;
 }
 
-.entrace-block__content {
+.autorization-block__content {
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
@@ -529,11 +529,11 @@ button:focus {
     transform: translate(-50%, -50%);
 }
 
-.entrance-block__top {
+.autorization-block__top {
     margin-bottom: 75px;
 }
 
-.entrance-block__item {
+.autorization-block__item {
     padding: 22px 0;
     background-color: transparent;
     font-style: normal;
@@ -551,7 +551,7 @@ button:focus {
 
 }
 
-.input-entrance {
+.input-autorization {
     background: #F4F9FF;
     box-shadow: inset 0px 3px 3px -2px rgba(0, 0, 0, 0.09);
     backdrop-filter: blur(16px);
@@ -566,7 +566,7 @@ button:focus {
     padding: 15px 0 15px 35px;
 }
 
-.btn-entrance {
+.btn-autorization {
     max-width: 380px;
     width: 100%;
     font-style: normal;

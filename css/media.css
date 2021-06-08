@@ -251,25 +251,25 @@
 
     /* article-back-up */
     /* autorization */
-    .entrance-block__top {
+    .autorization-block__top {
         margin-bottom: 40px;
     }
 
-    .entrance-block__item {
+    .autorization-block__item {
         padding: 17px 0;
         font-size: 14px;
         line-height: 20px;
         width: 140px;
     }
 
-    .input-entrance {
+    .input-autorization {
         font-size: 14px;
         line-height: 18px;
         max-width: 250px;
         padding: 15px 0 15px 35px;
     }
 
-    .btn-entrance {
+    .btn-autorization {
         max-width: 250px;
         font-size: 15px;
         line-height: 19px;
