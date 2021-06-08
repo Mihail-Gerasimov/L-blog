@@ -46,6 +46,7 @@
     }
 
     .author-article__info--description {
+        width: 150px;
         font-size: 14px;
         line-height: 16px;
     }
@@ -175,6 +176,11 @@
     .date-com-like {
         bottom: 5px;
         right: 0;
+    }
+
+    .social-element-click {
+        height: 12px;
+        width: 13px;
     }
 
     /* card-sec */

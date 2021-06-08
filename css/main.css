@@ -255,7 +255,7 @@ button:focus {
 }
 
 .date-com-like {
-    bottom: 15px;
+    bottom: 12px;
     right: 0;
 }
 
@@ -267,12 +267,34 @@ button:focus {
     color: #828282;
 }
 
+.social-element-click {
+    height: 15px;
+    width: 15px;
+    cursor: pointer;
+    fill: #828282;
+}
+
+.label-check {
+    display: flex;
+}
+
+#check-element {
+    left: 1px;
+    top: auto;
+    opacity: 0;
+    position: absolute;
+}
+
+#check-element:checked+.social-element-click {
+    fill: red;
+}
+
 .comment__number,
 .like__number {
     font-style: normal;
     font-weight: normal;
-    font-size: 10px;
-    line-height: 13px;
+    font-size: 14px;
+    line-height: 16px;
     color: #828282;
 }
 
