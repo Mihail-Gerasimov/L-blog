@@ -1,7 +1,7 @@
-@media (max-width: 1200px) {}
+@media (max-width: 1200px) {
+}
 
 @media (max-width: 992px) {
-
     /* article-back-up */
     .article-content {
         padding: 50px 60px 40px;
@@ -129,10 +129,19 @@
     }
 
     /* article-back-up */
+    .area-content {
+        max-width: 700px;
+    }
+    .form-profile__input {
+        max-width: 480px;
+        width: 100%;
+    }
+    .area-line {
+        max-width: 380px;
+    }
 }
 
 @media (max-width: 767px) {
-
     /* nav */
     .navigation {
         margin-bottom: 40px;
@@ -149,11 +158,15 @@
     }
 
     /* card-ser */
-
+    .area-line {
+        max-width: 380px;
+    }
+    .area-content {
+        max-width: 500px;
+    }
 }
 
 @media (max-width: 575px) {
-
     /* nav */
     .nav-logo {
         width: 40px;
@@ -289,4 +302,27 @@
     }
 
     /* autorization */
+    .area-line {
+        max-width: 300px;
+    }
+    .area-content {
+        max-width: 400px;
+        padding: 10px;
+    }
+    .form-profile__info {
+        font-size: 19px;
+        line-height: 23px;
+    }
+}
+
+@media (max-width: 425px) {
+    .area-content {
+        max-width: 290px;
+    }
+    .btn-form-profile {
+        max-width: inherit;
+    }
+    .area-line {
+        max-width: 200px;
+    }
 }
