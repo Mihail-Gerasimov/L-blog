@@ -43,86 +43,103 @@
     <!-- card-sec -->
     <section class="article-back-up">
         <div class="container">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">Блог</a></li>
-                    <li class="breadcrumb-item active"><a href="index.html">Статья</a></li>
-                </ol>
-            </nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Сайст</a></li>
+                <li class="breadcrumb-item"><a href="#">Блог</a></li>
+                <li class="breadcrumb-item"><a href="#">Рубрика</a></li>
+                <li class="breadcrumb-item bread-crumb--font"><a href="#">Название статьи</a></li>
+            </ol>
             <h1 class="obj-title__blog">Создание <span>шифрованных бэкапов</span></h1>
 
             <div class="article-general-block">
                 <div class="article-content w-100 mb-4 mb-lg-5">
-                    <img src="./img/articles/a-1-1/a-1-big.png" class="art-big mb-4" alt="">
-                    <p class="article-content__text mb-4">Безопасность бэкапов очень важна, особенно если вы работаете с
-                        конфиденциальными данными. Никто, кроме вас, не должен иметь возможность читать ваши резервные
-                        копии и вы должны быть уверены, что в случаем проблем не потеряете данные.</p>
-                    <p class="article-content__text mb-4">Всегда нужно шифровать резервные копии своих приложений и
-                        безопасным способом передавать их в одно или несколько мест для хранения. <br> Если вы шифруете
-                        бэкап
-                        на своем сервере и передаете на хостинг для хранения уже зашифрованную версию, то даже хостер
-                        бекапов не сможет их прочесть.</p>
-                    <p class="article-content__text mb-4">Я рекомендую вам выбрать другого хостера для хранения
-                        резервных копий, не того же, что и для продакшн-сервера. Если по какой-либо причине у вашего
-                        хостера возникнут проблемы, то вы все равно сможете получить доступ к бэкапам, чтобы
-                        восстановить работу приложения как можно быстрее.</p>
-                    <div class="article-element mb-4 mb-lg-5">
-                        <h3 class="article-element__title mb-4">Содержание</h3>
-                        <ul class="article-element__list">
-                            <li class="article-element__item article-content__title mb-2">1. Представляем
-                                spatie/laravel-backup</li>
-                            <li class="article-element__item article-content__title">2. Шифруйте бэкапы с помощью
-                                AES-256</li>
-                        </ul>
-                    </div>
+                    <img src="./img/articles/a-1-1/a-1-big.png" class="art-big mb-4 w-100" alt="">
+                    <div class="article-content__block">
+                        <p class="article-content__text mb-4">Безопасность бэкапов очень важна, особенно если вы
+                            работаете с
+                            конфиденциальными данными. Никто, кроме вас, не должен иметь возможность читать ваши
+                            резервные
+                            копии и вы должны быть уверены, что в случаем проблем не потеряете данные.</p>
+                        <p class="article-content__text mb-4">Всегда нужно шифровать резервные копии своих приложений и
+                            безопасным способом передавать их в одно или несколько мест для хранения. <br> Если вы
+                            шифруете
+                            бэкап
+                            на своем сервере и передаете на хостинг для хранения уже зашифрованную версию, то даже
+                            хостер
+                            бекапов не сможет их прочесть.</p>
+                        <p class="article-content__text mb-4">Я рекомендую вам выбрать другого хостера для хранения
+                            резервных копий, не того же, что и для продакшн-сервера. Если по какой-либо причине у вашего
+                            хостера возникнут проблемы, то вы все равно сможете получить доступ к бэкапам, чтобы
+                            восстановить работу приложения как можно быстрее.</p>
+                        <div class="article-element mb-4 mb-lg-5">
+                            <h3 class="article-element__title mb-4">Содержание</h3>
+                            <ul class="article-element__list">
+                                <li class="article-element__item article-content__title mb-2">1. Представляем
+                                    spatie/laravel-backup</li>
+                                <li class="article-element__item article-content__title">2. Шифруйте бэкапы с помощью
+                                    AES-256</li>
+                            </ul>
+                        </div>
 
-                    <h3 class="article-content__title mb-4">Представляем spatie/laravel-backup</h3>
-                    <p class="article-content__text mb-5">Пакет lativel-backup от Spatie является идеальной отправной
-                        точкой для создания бэкапов вашего проекта на Laravel. Он создает снимок вашей базы данных и
-                        файлов вашего приложения и запаковывает их в ZIP-файл, который пересылается в указанное место
-                        для хранения. Пакет полностью конфигурируется, просто настройте его под свои нужды и используйте
-                        планировщик задач Laravel для создания регулярных бэкапов. Узнать больше о том, как
-                        настраивается пакет мы можете в документации.</p>
-                    <h3 class="article-content__title mb-4">Шифруйте бэкапы с помощью AES-256</h3>
-                    <p class="article-content__text mb-4">Единственное, чего не хватает в этом пакете: шифрование. Но
-                        пакет запускает различные события, которые мы можем слушать, и добавить шифрование становится
-                        очень просто. Интересующее нас событие — BackupZipWasCreated. Оно запускается, как только
-                        создастся ZIP-файл с бэкапом, сразу перед его копированием в место назначения. По сути,
-                        идеальное время для шифрование файла.</p>
-                    <p class="article-content__text mb-4">Если вы имеете дело с конфиденциальными данными, то вам
-                        следует использовать безопасный алгоритм, например, такой как AES-256. К счастью, PHP 7.2 имеет
-                        встроенную поддержку шифрования в ZipArchive.</p>
-                    <p class="article-content__text mb-4">Давайте создадим слушателя события BackupZipWasCreated,
-                        который будет шифровать бэкап.</p>
-                    <p class="article-content__text mb-4">Начиная с Laravel 5.8.9, вы можете использовать обнаружение
-                        событий (Event Discovery), поэтому не нужно регистрировать слушателя вручную в
-                        EventServiceProvider. Просто объявите тип события, которое надо прослушивать и Laravel все
-                        сделает сам.</p>
-                    <p class="article-content__text mb-4">Я вынес пароль для бэкапов в переменную .env, которая доступна
-                        через config(‘app.backup.password’). Ваш пароль не используется для шифрования напрямую. Он
-                        передается в функцию вывода ключа, которая генерирует 32-х байтный ключ, необходимый для
-                        шифрования AES-256. Только добавьте достаточно энтропии к паролю.</p>
-                    <p class="article-content__text mb-4">Теперь, когда у нас все готово, мы можем запустить php artisan
-                        backup:run. Чтобы убедиться, что шифрование работает правильно, попробуйте открыть файл
-                        резервной копии — у вас должны спросить пароль.</p>
-                    <p class="article-content__text mb-4">Запомните свой свой пароль и храните его в безопасности. Если
-                        вы его потеряете, то не сможете расшифровать свои бэкапы и потеряете данные навсегда!</p>
-                    <p class="article-content__text mb-5">Я надеюсь, вам понравилась эта статья. Защита данных это не
-                        так сложна, как кажется, но отнеситесь к ней серьезно и начните с малого.</p>
-                    <div class="article-content__bottom w-100 mb-3"></div>
-                    <div class="article-content__tag d-flex">
-                        <a href="#" class="article-content__tag--element me-2">
-                            <p class="article-content__text">#тег1</p>
-                        </a>
-                        <a href="#" class="article-content__tag--element me-2">
-                            <p class="article-content__text">#тег2</p>
-                        </a>
-                        <a href="#" class="article-content__tag--element me-2">
-                            <p class="article-content__text">#тег3</p>
-                        </a>
-                        <a href="#" class="article-content__tag--element">
-                            <p class="article-content__text">#тег4</p>
-                        </a>
+                        <h3 class="article-content__title mb-4">Представляем spatie/laravel-backup</h3>
+                        <p class="article-content__text mb-5">Пакет lativel-backup от Spatie является идеальной
+                            отправной
+                            точкой для создания бэкапов вашего проекта на Laravel. Он создает снимок вашей базы данных и
+                            файлов вашего приложения и запаковывает их в ZIP-файл, который пересылается в указанное
+                            место
+                            для хранения. Пакет полностью конфигурируется, просто настройте его под свои нужды и
+                            используйте
+                            планировщик задач Laravel для создания регулярных бэкапов. Узнать больше о том, как
+                            настраивается пакет мы можете в документации.</p>
+                        <h3 class="article-content__title mb-4">Шифруйте бэкапы с помощью AES-256</h3>
+                        <p class="article-content__text mb-4">Единственное, чего не хватает в этом пакете: шифрование.
+                            Но
+                            пакет запускает различные события, которые мы можем слушать, и добавить шифрование
+                            становится
+                            очень просто. Интересующее нас событие — BackupZipWasCreated. Оно запускается, как только
+                            создастся ZIP-файл с бэкапом, сразу перед его копированием в место назначения. По сути,
+                            идеальное время для шифрование файла.</p>
+                        <p class="article-content__text mb-4">Если вы имеете дело с конфиденциальными данными, то вам
+                            следует использовать безопасный алгоритм, например, такой как AES-256. К счастью, PHP 7.2
+                            имеет
+                            встроенную поддержку шифрования в ZipArchive.</p>
+                        <p class="article-content__text mb-4">Давайте создадим слушателя события BackupZipWasCreated,
+                            который будет шифровать бэкап.</p>
+                        <p class="article-content__text mb-4">Начиная с Laravel 5.8.9, вы можете использовать
+                            обнаружение
+                            событий (Event Discovery), поэтому не нужно регистрировать слушателя вручную в
+                            EventServiceProvider. Просто объявите тип события, которое надо прослушивать и Laravel все
+                            сделает сам.</p>
+                        <p class="article-content__text mb-4">Я вынес пароль для бэкапов в переменную .env, которая
+                            доступна
+                            через config(‘app.backup.password’). Ваш пароль не используется для шифрования напрямую. Он
+                            передается в функцию вывода ключа, которая генерирует 32-х байтный ключ, необходимый для
+                            шифрования AES-256. Только добавьте достаточно энтропии к паролю.</p>
+                        <p class="article-content__text mb-4">Теперь, когда у нас все готово, мы можем запустить php
+                            artisan
+                            backup:run. Чтобы убедиться, что шифрование работает правильно, попробуйте открыть файл
+                            резервной копии — у вас должны спросить пароль.</p>
+                        <p class="article-content__text mb-4">Запомните свой свой пароль и храните его в безопасности.
+                            Если
+                            вы его потеряете, то не сможете расшифровать свои бэкапы и потеряете данные навсегда!</p>
+                        <p class="article-content__text mb-5">Я надеюсь, вам понравилась эта статья. Защита данных это
+                            не
+                            так сложна, как кажется, но отнеситесь к ней серьезно и начните с малого.</p>
+                        <div class="article-content__bottom w-100 mb-3"></div>
+                        <div class="article-content__tag d-flex">
+                            <a href="#" class="article-content__tag--element me-2">
+                                <p class="article-content__text">#тег1</p>
+                            </a>
+                            <a href="#" class="article-content__tag--element me-2">
+                                <p class="article-content__text">#тег2</p>
+                            </a>
+                            <a href="#" class="article-content__tag--element me-2">
+                                <p class="article-content__text">#тег3</p>
+                            </a>
+                            <a href="#" class="article-content__tag--element">
+                                <p class="article-content__text">#тег4</p>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <div class="author-article d-flex align-items-center justify-content-between">
@@ -152,16 +169,13 @@
                                 <div class="comment__number">0</div>
                             </div>
                             <div class="like-block d-flex align-items-center">
-                                <label for="" class="label-check position-relative">
-                                    <input id="check-element" type="checkbox">
-                                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart"
-                                        class="social-element-click me-1 svg-inline--fa fa-heart fa-w-16" role="img"
-                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                        <path
-                                            d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z">
-                                        </path>
-                                    </svg>
-                                </label>
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="eye"
+                                    class="social-element-click me-1 svg-inline--fa fa-eye fa-w-18" role="img"
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                                    <path
+                                        d="M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400a144 144 0 1 1 144-144 143.93 143.93 0 0 1-144 144zm0-240a95.31 95.31 0 0 0-25.31 3.79 47.85 47.85 0 0 1-66.9 66.9A95.78 95.78 0 1 0 288 160z">
+                                    </path>
+                                </svg>
                                 <div class="like__number">0</div>
                             </div>
                         </div>
@@ -184,16 +198,13 @@
 
                             </div>
                             <div class="comment-heart-block d-flex  align-items-center position-absolute">
-                                <label for="" class="label-check position-relative">
-                                    <input id="check-element" type="checkbox">
-                                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart"
-                                        class="social-element-click me-1 svg-inline--fa fa-heart fa-w-16" role="img"
-                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                        <path
-                                            d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z">
-                                        </path>
-                                    </svg>
-                                </label>
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart"
+                                    class="social-element-click me-1 svg-inline--fa fa-heart fa-w-16" role="img"
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                    <path
+                                        d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z">
+                                    </path>
+                                </svg>
                                 <div class="comment-heart__number">1</div>
                             </div>
                         </div>
@@ -213,16 +224,13 @@
 
                             </div>
                             <div class="comment-heart-block d-flex align-items-center position-absolute">
-                                <label for="" class="label-check position-relative">
-                                    <input id="check-element" type="checkbox">
-                                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart"
-                                        class="social-element-click me-1 svg-inline--fa fa-heart fa-w-16" role="img"
-                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                        <path
-                                            d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z">
-                                        </path>
-                                    </svg>
-                                </label>
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart"
+                                    class="social-element-click me-1 svg-inline--fa fa-heart fa-w-16" role="img"
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                    <path
+                                        d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z">
+                                    </path>
+                                </svg>
                                 <div class="comment-heart__number">1</div>
                             </div>
                         </div>
@@ -242,16 +250,13 @@
 
                             </div>
                             <div class="comment-heart-block d-flex align-items-center position-absolute">
-                                <label for="" class="label-check position-relative">
-                                    <input id="check-element" type="checkbox">
-                                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart"
-                                        class="social-element-click me-1 svg-inline--fa fa-heart fa-w-16" role="img"
-                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                        <path
-                                            d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z">
-                                        </path>
-                                    </svg>
-                                </label>
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart"
+                                    class="social-element-click me-1 svg-inline--fa fa-heart fa-w-16" role="img"
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                    <path
+                                        d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z">
+                                    </path>
+                                </svg>
                                 <div class="comment-heart__number">1</div>
                             </div>
                         </div>
@@ -271,16 +276,13 @@
 
                             </div>
                             <div class="comment-heart-block d-flex align-items-center position-absolute">
-                                <label for="" class="label-check position-relative">
-                                    <input id="check-element" type="checkbox">
-                                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart"
-                                        class="social-element-click me-1 svg-inline--fa fa-heart fa-w-16" role="img"
-                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                        <path
-                                            d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z">
-                                        </path>
-                                    </svg>
-                                </label>
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart"
+                                    class="social-element-click me-1 svg-inline--fa fa-heart fa-w-16" role="img"
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                    <path
+                                        d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z">
+                                    </path>
+                                </svg>
                                 <div class="comment-heart__number">1</div>
                             </div>
                         </div>
@@ -288,14 +290,17 @@
                 </div>
                 <label class="label-comment d-flex align-items-center position-relative" for="">
                     <input type="text" placeholder="Комментарий ..." class="label-comment__input">
-                    <button class="label-btn-arrow p-0"><img src="./img/articles/next-arrow.png"
-                            class="label-next-arrow" alt=""></button>
-                    <div class="position-absolute label-btn-clip"><img src="./img/articles/clip.png" alt="">
-                    </div>
-                    <div class="position-absolute label-btn-photo"><img src="./img/articles/photo.png" alt="">
-                    </div>
-                    <div class="position-absolute label-btn-smile"><img src="./img/articles/smile-face.png" alt="">
-                    </div>
+                    <button class="label-btn-arrow p-0">
+                        <svg class="label-next-arrow" width="38" height="38" viewBox="0 0 38 38" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M19 0C29.4934 0 38 8.50659 38 19C38 29.4934 29.4934 38 19 38C8.50659 38 0 29.4934 0 19C0 8.50659 8.50659 0 19 0Z"
+                                fill="#F4F9FF" />
+                            <path
+                                d="M29.8929 19.5611L12.7532 30.1085C12.5118 30.2572 12.2054 30.2359 11.9884 30.0557C11.7708 29.8768 11.6916 29.5793 11.7901 29.3154L15.4113 19.6589H24.2734C24.6377 19.6589 24.9326 19.364 24.9326 18.9997C24.9326 18.6353 24.6377 18.3405 24.2734 18.3405H15.4113L11.7901 8.68392C11.6916 8.42 11.7708 8.12253 11.9884 7.94359C12.2037 7.76606 12.5103 7.7415 12.7532 7.89082L29.8929 18.4383C30.0879 18.5581 30.2064 18.7705 30.2064 18.9997C30.2064 19.2289 30.0879 19.4413 29.8929 19.5611Z"
+                                fill="#142239" />
+                        </svg>
+                    </button>
                 </label>
 
             </div>
@@ -303,8 +308,9 @@
         <div class="article-card-block bg-color">
             <div class="container">
                 <h1 class="obj-title__blog">Похожие статьи</h1>
-                <div class="card__block d-flex justify-content-between flex-wrap mb-3">
-                    <div class="card__item d-flex flex-column mb-3 mx-auto position-relative">
+
+                <div class="card__block d-flex flex-row flex-wrap justify-content-start mb-3">
+                    <div class="card__item d-flex flex-column mb-3 mx-lg-2 mx-1 position-relative">
                         <a class="card-general__picture mb-3" href="./article-back-up.html"><img class="a-1"
                                 src="./img/articles/a-1.png" alt=""></a>
                         <div class="card__content px-3">
@@ -330,23 +336,19 @@
                                     <div class="comment__number">0</div>
                                 </div>
                                 <div class="like-block d-flex align-items-center">
-                                    <label for="" class="label-check position-relative">
-                                        <input id="check-element" type="checkbox">
-                                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart"
-                                            class="social-element-click me-1 svg-inline--fa fa-heart fa-w-16" role="img"
-                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                            <path
-                                                d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z">
-                                            </path>
-                                        </svg>
-                                    </label>
-
+                                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart"
+                                        class="social-element-click red-heart me-1 svg-inline--fa fa-heart fa-w-16"
+                                        role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                        <path
+                                            d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z">
+                                        </path>
+                                    </svg>
                                     <div class="like__number">0</div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="card__item d-flex flex-column mb-3 mx-auto position-relative">
+                    <div class="card__item d-flex flex-column mb-3 mx-lg-2 mx-1 position-relative">
                         <a class="card-general__picture mb-3" href="#"><img class="a-1" src="./img/articles/a-2.png"
                                 alt=""></a>
                         <div class="card__content px-3">
@@ -372,22 +374,19 @@
                                     <div class="comment__number">0</div>
                                 </div>
                                 <div class="like-block d-flex align-items-center">
-                                    <label for="" class="label-check position-relative">
-                                        <input id="check-element" type="checkbox">
-                                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart"
-                                            class="social-element-click me-1 svg-inline--fa fa-heart fa-w-16" role="img"
-                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                            <path
-                                                d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z">
-                                            </path>
-                                        </svg>
-                                    </label>
+                                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart"
+                                        class="social-element-click red-heart me-1 svg-inline--fa fa-heart fa-w-16"
+                                        role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                        <path
+                                            d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z">
+                                        </path>
+                                    </svg>
                                     <div class="like__number">0</div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="card__item d-flex flex-column mb-3 mx-auto position-relative">
+                    <div class="card__item d-flex flex-column mb-3 mx-lg-2 mx-1 position-relative">
                         <a class="card-general__picture mb-3" href="#"><img class="a-1" src="./img/articles/a-3.png"
                                 alt=""></a>
                         <div class="card__content px-3">
@@ -413,27 +412,65 @@
                                     <div class="comment__number">0</div>
                                 </div>
                                 <div class="like-block d-flex align-items-center">
-                                    <label for="" class="label-check position-relative">
-                                        <input id="check-element" type="checkbox">
-                                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart"
-                                            class="social-element-click me-1 svg-inline--fa fa-heart fa-w-16" role="img"
-                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                            <path
-                                                d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z">
-                                            </path>
-                                        </svg>
-                                    </label>
+                                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart"
+                                        class="social-element-click me-1 svg-inline--fa fa-heart fa-w-16" role="img"
+                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                        <path
+                                            d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z">
+                                        </path>
+                                    </svg>
+                                    <div class="like__number">0</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card__item d-flex flex-column mb-3 mx-lg-2 mx-1 position-relative">
+                        <a class="card-general__picture mb-3" href="#"><img class="a-1" src="./img/articles/a-3.png"
+                                alt=""></a>
+                        <div class="card__content px-3">
+                            <a class="link-title-card" href="#">
+                                <h4 class="title-card mb-1">Заголовок статьи</h4>
+                            </a>
+                            <p class="card__description">Расшифровка подзаголовка,немного конкретики и инфы ...</p>
+                        </div>
+                        <a class="read-next position-absolute" href="#">
+                            <p class=" px-3">Читать далее</p>
+                        </a>
+                        <div class="date-com-like position-absolute px-3">
+                            <p class="date-info mb-1">26 мая 2021, 00:44</p>
+                            <div class="com-like__block d-flex align-items-center">
+                                <div class="comment-block d-flex align-items-center me-2">
+                                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="comments"
+                                        class="social-element-click me-1 svg-inline--fa fa-comments fa-w-18" role="img"
+                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                                        <path
+                                            d="M416 192c0-88.4-93.1-160-208-160S0 103.6 0 192c0 34.3 14.1 65.9 38 92-13.4 30.2-35.5 54.2-35.8 54.5-2.2 2.3-2.8 5.7-1.5 8.7S4.8 352 8 352c36.6 0 66.9-12.3 88.7-25 32.2 15.7 70.3 25 111.3 25 114.9 0 208-71.6 208-160zm122 220c23.9-26 38-57.7 38-92 0-66.9-53.5-124.2-129.3-148.1.9 6.6 1.3 13.3 1.3 20.1 0 105.9-107.7 192-240 192-10.8 0-21.3-.8-31.7-1.9C207.8 439.6 281.8 480 368 480c41 0 79.1-9.2 111.3-25 21.8 12.7 52.1 25 88.7 25 3.2 0 6.1-1.9 7.3-4.8 1.3-2.9.7-6.3-1.5-8.7-.3-.3-22.4-24.2-35.8-54.5z">
+                                        </path>
+                                    </svg>
+                                    <div class="comment__number">0</div>
+                                </div>
+                                <div class="like-block d-flex align-items-center">
+                                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="heart"
+                                        class="social-element-click me-1 svg-inline--fa fa-heart fa-w-16" role="img"
+                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                        <path
+                                            d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z">
+                                        </path>
+                                    </svg>
                                     <div class="like__number">0</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
     <!-- card-sec -->
-
+    <footer class="footer">
+        <div class="bg-color-blue"></div>
+    </footer>
 
     <!-- bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"

@@ -1,12 +1,39 @@
 @media (max-width: 1200px) {
+    .card__block {
+        width: 760px;
+        margin: 0 auto;
+    }
+    /* reset */
+    .reset-password {
+        padding-left: 0px;
+    }
+    /* reset */
+    .personal-click {
+        width: 260px;
+    }
+    .general-wrapper-width {
+        max-width: 645px;
+    }
+    .input-line {
+        max-width: 360px;
+    }
+    .from-input-reset-width {
+        max-width: 290px !important;
+    }
 }
 
 @media (max-width: 992px) {
-    /* article-back-up */
-    .article-content {
-        padding: 50px 60px 40px;
+    .card__block {
+        width: 690px;
+        margin: 0 auto;
     }
-
+    .card__item {
+        max-width: 335px;
+    }
+    /* article-back-up */
+    .article-content__block {
+        padding: 0px 60px 40px;
+    }
     .article-content__text {
         font-size: 18px;
         line-height: 23px;
@@ -127,17 +154,36 @@
         padding-left: 60px;
         margin-bottom: 60px;
     }
-
-    /* article-back-up */
-    .area-content {
-        max-width: 700px;
+    .personal-click {
+        width: 170px;
     }
-    .form-profile__input {
-        max-width: 480px;
-        width: 100%;
+    .personal-click__item {
+        padding: 15px 0 15px 20px;
     }
-    .area-line {
-        max-width: 380px;
+    .personal-text {
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .general-wrapper-width {
+        max-width: 510px;
+    }
+    .psevdo-avatar {
+        width: 90px;
+    }
+    .photo-block-btn {
+        font-size: 13px;
+        line-height: 15px;
+    }
+    .input-line {
+        max-width: 290px;
+    }
+    .from-input-reset-width {
+        max-width: 225px !important;
+    }
+    .from-input-reset {
+        font-size: 17px;
+        line-height: 22px;
+        padding: 14px 0 14px 20px;
     }
 }
 
@@ -164,8 +210,43 @@
     .area-content {
         max-width: 500px;
     }
+    .card__block {
+        width: 100%;
+        max-width: 370px;
+        margin: 0 auto;
+    }
+    .card__item {
+        max-width: 360px;
+    }
+    .general-wrapper-width {
+        max-width: 430px;
+    }
+    .form-email-full {
+        width: 105px;
+        font-size: 18px;
+        line-height: 23px;
+    }
 }
-
+@media (max-width: 676px) {
+    .general-wrapper-width {
+        max-width: 370px;
+    }
+    .personal-click {
+        width: 130px;
+    }
+    .personal-click__item {
+        padding: 10px 0 10px 10px;
+    }
+    .personal-text {
+        font-size: 16px;
+        line-height: 19px;
+    }
+    .form-email-full {
+        width: 85px;
+        font-size: 15px;
+        line-height: 15px;
+    }
+}
 @media (max-width: 575px) {
     /* nav */
     .nav-logo {
@@ -202,10 +283,9 @@
         padding-top: 35px;
     }
 
-    .article-content {
-        padding: 10px 10px 25px;
+    .article-content__block {
+        padding: 0px 10px 25px;
     }
-
     .article-content__text {
         font-size: 17px;
         line-height: 21px;
@@ -300,29 +380,67 @@
         right: 10px;
         top: 10px;
     }
-
-    /* autorization */
-    .area-line {
-        max-width: 300px;
+    /* reset */
+    .title-litle {
+        margin-bottom: 25px;
+        font-size: 20px;
+        line-height: 26px;
     }
-    .area-content {
-        max-width: 400px;
-        padding: 10px;
+    .form-email {
+        font-size: 20px;
+        line-height: 24px;
     }
-    .form-profile__info {
-        font-size: 19px;
-        line-height: 23px;
+    .from-input-reset {
+        font-size: 20px;
+        line-height: 26px;
+        padding: 10px 0 10px 20px;
+    }
+    .btn-red {
+        padding: 10px 0;
+        font-size: 15px;
+        line-height: 19px;
+    }
+    .breadcrumb {
+        padding-left: 0px;
+    }
+    .breadcrumb-item a {
+        font-size: 16px;
+        line-height: 16px;
+    }
+    .breadcrumb-item + .breadcrumb-item {
+        padding-left: 0.2rem;
+    }
+    .breadcrumb-item + .breadcrumb-item::before {
+        padding-right: 0.2rem;
+    }
+    .cross-body-two {
+        top: 50%;
+        right: 20px;
+    }
+    /* reset */
+    .personal-click {
+        max-width: 370px;
+        width: 100%;
+    }
+    .personal-text {
+        font-size: 20px;
+        line-height: 24px;
+    }
+    .personal-click__item {
+        padding: 15px 0 15px 15px;
+    }
+    .psevdo-avatar {
+        width: auto;
+    }
+    .from-input-reset-width {
+        max-width: initial !important;
+    }
+    .form-email-full {
+        width: 170px;
+        font-size: 20px;
+        line-height: 24px;
     }
 }
 
 @media (max-width: 425px) {
-    .area-content {
-        max-width: 290px;
-    }
-    .btn-form-profile {
-        max-width: inherit;
-    }
-    .area-line {
-        max-width: 200px;
-    }
 }

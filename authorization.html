@@ -28,22 +28,23 @@
     <div class="autorization-block position-relative">
         <div class="autorization-block__content position-absolute">
             <div class="autorization-block__top d-flex">
-                <button class="autorization-block__item active-red">Зарегистрироваться</button>
-                <button class="autorization-block__item ">Авторизоваться</button>
+                <button class="autorization-block__item ">Зарегистрироваться</button>
+                <button class="autorization-block__item active-red">Авторизоваться</button>
             </div>
-            <form class="d-flex align-items-center flex-column" action="">
-                <input placeholder="Имя пользователя" class="input-autorization mb-2" type="text">
-                <input placeholder="Электронная почта" class="input-autorization mb-2" type="text">
-                <input placeholder="Пароль" class="input-autorization mb-4" type="number">
-
-                <button class="btn-autorization" type="submit">Зарегистрироваться</button>
-            </form>
-
             <form class="d-none align-items-center flex-column" action="">
                 <input placeholder="Имя пользователя" class="input-autorization mb-2" type="text">
-                <input placeholder="Пароль" class="input-autorization mb-4" type="number">
+                <input placeholder="Электронная почта" class="input-autorization mb-2" type="text">
+                <input placeholder="Пароль" class="input-autorization mb-4" type="tel">
 
-                <button class="btn-autorization" type="submit">Авторизоваться</button>
+                <button class="btn-autorization mb-5" type="submit">Зарегистрироваться</button>
+            </form>
+
+            <form class="d-flex align-items-center flex-column" action="">
+                <input placeholder="Имя пользователя" class="input-autorization mb-2" type="text">
+                <input placeholder="Пароль" class="input-autorization mb-4" type="tel">
+
+                <button class="btn-autorization mb-3" type="submit">Авторизоваться</button>
+                <a class="password-text mb-4" href="./reset-the-password.html">Забыли пароль?</a>
             </form>
         </div>
         <button class="cross-body position-absolute"><img src="./img/articles/cross.png" alt=""></button>
