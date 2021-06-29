@@ -152,11 +152,21 @@ button:focus {
 
 .nav-title,
 .nav-btn {
+    cursor: pointer;
     font-style: normal;
     font-weight: bold;
     font-size: 30px;
     line-height: 39px;
     color: #142239;
+}
+.nav-title {
+    transition: 0.3s;
+    text-decoration: underline transparent;
+}
+
+.nav-title:hover {
+    transition: 0.3s;
+    text-decoration: underline #ce2f27;
 }
 
 .nav-btn {
@@ -766,7 +776,113 @@ button:focus {
     transform: translateY(-50%);
     right: 30px;
 }
-/* reset */
+
+.personal-click-lk {
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 20px;
+}
+.btn-secondary {
+    color: #142239;
+    background-color: transparent;
+    border-color: transparent;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 39px;
+    transition: 0.2s;
+    text-decoration: underline transparent;
+}
+.btn-secondary:hover {
+    color: #142239;
+    background-color: transparent;
+    border-color: transparent;
+    text-decoration: underline #ce2f27;
+    transition: 0.2s;
+}
+.btn-check:focus + .btn-secondary,
+.btn-secondary:focus {
+    color: #142239;
+    background-color: transparent;
+    border-color: transparent;
+    box-shadow: none;
+}
+btn-check:active + .btn-secondary:focus,
+.btn-check:checked + .btn-secondary:focus,
+.btn-secondary.active:focus,
+.btn-secondary:active:focus,
+.show > .btn-secondary.dropdown-toggle:focus {
+    box-shadow: none;
+}
+.dropdown-toggle::after {
+    display: none !important;
+}
+.dropdown-menu {
+    min-width: fit-content;
+    margin: 0;
+    font-size: 17px;
+    line-height: 22px;
+    font-weight: 400;
+    color: #142239;
+    text-align: left;
+    list-style: none;
+    background-color: #f4f9ff;
+    border-radius: 0px !important;
+    border: none;
+}
+.dropdown-item {
+    transition: 0.3s;
+}
+.dropdown-item:hover {
+    border-bottom: 1px solid black;
+    transition: 0.3s;
+    background-color: #8fc7d4;
+}
+.search-solid {
+    cursor: pointer;
+    transition: 0.3s;
+    width: 30px;
+}
+
+.search-solid:hover {
+    transform: scale(1.06);
+    transition: 0.3s;
+    fill: #ce2f27;
+}
+.search-solid path {
+    transition: 0.3s;
+}
+.search-solid:hover path {
+    transition: 0.3s;
+    fill: #ce2f27;
+}
+.search-active {
+    height: 300px !important;
+    transition: 0.7s;
+}
+.searc-block {
+    transition: 0.7s;
+    overflow: hidden;
+    height: 0px;
+    background-color: #f4f9ff;
+}
+
+.search-input-line {
+    width: 100%;
+    background-color: transparent;
+    padding: 0 0 5px 30px;
+    border-bottom: 1.5px solid #142239;
+    font-size: 30px;
+    line-height: 35px;
+    font-weight: 700;
+    color: #3c3e41;
+}
+.search-cross {
+    cursor: pointer;
+    right: 0;
+    top: 20px;
+}
+
 /* footer */
 .bg-color-blue {
     background-color: #142239;
