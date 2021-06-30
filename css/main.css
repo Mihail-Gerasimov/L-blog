@@ -877,6 +877,12 @@ btn-check:active + .btn-secondary:focus,
     font-weight: 700;
     color: #3c3e41;
 }
+.search-input-line:hover {
+    border-bottom: 1.5px solid #142239;
+}
+.search-input-line:focus {
+    border-bottom: 1.5px solid #142239;
+}
 .search-cross {
     cursor: pointer;
     right: 0;
