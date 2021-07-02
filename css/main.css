@@ -615,18 +615,20 @@ button:focus {
     width: 100%;
 }
 .photo-block-btn {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 15px;
-    line-height: 19px;
     text-align: center;
-    color: #ffffff;
-    background: #142239;
     backdrop-filter: blur(16px);
     border-radius: 5px;
-    width: 100%;
-    max-width: 130px;
-    padding: 5px 0;
+    width: 100px;
+}
+.photo-block-btn[type="file" i] {
+    font-style: normal;
+    font-weight: normal;
+    background-color: #ffffff;
+    color: #142239;
+    padding: 1px;
+    font-size: 15px;
+    line-height: 19px;
+    font-weight: 500;
 }
 .input-line {
     max-width: 460px;

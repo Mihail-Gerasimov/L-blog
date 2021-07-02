@@ -14,5 +14,4 @@ searchCross.onclick = function () {
 
 searchSolid.onclick = function () {
     showSearch();
-    console.log(1);
 };
