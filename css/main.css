@@ -367,7 +367,32 @@ button:focus {
     font-size: 30px;
     line-height: 39px;
 }
-
+.article-element__disc {
+    list-style-type: inherit;
+    padding-left: 45px;
+}
+.article-element__list {
+    counter-reset: myCounter;
+}
+.article-element__item {
+    list-style: none;
+    margin-bottom: 10px;
+}
+.article-element__item:last-child {
+    list-style: none;
+    margin-bottom: 0px;
+}
+.article-element__item::before {
+    counter-increment: myCounter;
+    content: counter(myCounter) ".";
+    color: rgb(151, 0, 0);
+    display: inline-block;
+    text-align: right;
+    line-height: 39px;
+    font-size: 30px;
+    margin-right: 5px;
+    width: 40px;
+}
 .article-content__bottom {
     height: 1px;
     background-color: #cecece;

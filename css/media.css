@@ -56,7 +56,14 @@
         font-size: 24px;
         line-height: 31px;
     }
-
+    .article-element__item::before {
+        line-height: 31px;
+        font-size: 24px;
+        width: 30px;
+    }
+    .article-element__disc {
+        padding-left: 35px;
+    }
     .author-article {
         padding: 0 60px;
         margin-bottom: 70px;
