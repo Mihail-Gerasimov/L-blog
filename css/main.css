@@ -367,6 +367,37 @@ button:focus {
     font-size: 30px;
     line-height: 39px;
 }
+.usually-disc {
+    list-style-type: inherit;
+    padding-left: 25px;
+}
+.usually-disc__element {
+    margin-bottom: 10px;
+}
+.usually-disc__element:last-child {
+    margin-bottom: 0px;
+}
+.usually-number {
+    counter-reset: myNumber;
+}
+.usually-number__element {
+    list-style: none;
+    margin-bottom: 10px;
+}
+.usually-number__element:last-child {
+    margin-bottom: 0px;
+}
+.usually-number__element::before {
+    counter-increment: myNumber;
+    content: counter(myNumber) ".";
+    color: #142239;
+    display: inline-block;
+    text-align: right;
+    line-height: 24px;
+    font-size: 31px;
+    margin-right: 5px;
+    width: 35px;
+}
 .article-element__disc {
     list-style-type: inherit;
     padding-left: 45px;
@@ -385,7 +416,7 @@ button:focus {
 .article-element__item::before {
     counter-increment: myCounter;
     content: counter(myCounter) ".";
-    color: rgb(151, 0, 0);
+    color: #ce2f27;
     display: inline-block;
     text-align: right;
     line-height: 39px;
